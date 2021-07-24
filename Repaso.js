@@ -28,11 +28,17 @@ const { Queue, LinkedList, BinarySearchTree } = require('./DataStructures.js');
 // search(value) ---> Devuelve la posicion del nodo con el valor recibido por parametro, contando desde 0.
 // myLinkedList.search(16) ---> devuelve 2.
 
-LinkedList.prototype.getHead = function () {};
+LinkedList.prototype.getHead = function () {
+    
+};
 
-LinkedList.prototype.getTail = function () {};
+LinkedList.prototype.getTail = function () {
+   
+};
 
-LinkedList.prototype.search = function (value) {};
+LinkedList.prototype.search = function (value) {
+  
+};
 
 /*****************************************************************/
 /*************************** Recursion ***************************/
@@ -45,7 +51,12 @@ LinkedList.prototype.search = function (value) {};
 // Palindromo es una expresion que se lee igual de derecha a izquierda o viceversa.
 // Ejemplo de numeros palindromos: 1001, 252, 2001, 2222, 9889.
 
-function isPalindrome(number) {}
+function isPalindrome(number) {
+    
+    
+    }
+
+
 
 /*****************************************************************/
 /*********************** Recursion y Stack ***********************/
@@ -65,7 +76,9 @@ function isPalindrome(number) {}
 // 2
 // 1
 
-Queue.prototype.reverseStack = function () {};
+Queue.prototype.reverseStack = function (reversed) {
+   
+};
 
 /*****************************************************************/
 /**************************** Closures ***************************/
