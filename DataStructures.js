@@ -18,6 +18,17 @@ Queue.prototype.isEmpty = function () {
     return this.size === 0;
 };
 
+        
+
+            
+         
+               
+
+
+
+
+
+
 function LinkedList() {
     this.head = null;
 }
@@ -140,6 +151,8 @@ BinarySearchTree.prototype.contains = function (data) {
     this.breadthFirstForEach(fx);
     return array.includes(data);
 };
+
+                
 
 module.exports = {
     Queue,

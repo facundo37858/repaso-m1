@@ -163,8 +163,44 @@ growUp()
 // ordenado de menor a mayor.
 // Si se nos presenta un arbol como el que se encuentra en el archivo BST.png
 // la funcion deberia retornar [1, 5, 14].
+//const { Queue, LinkedList, BinarySearchTree } = require('./DataStructures.js');
 
-BinarySearchTree.prototype.getLeafs = function () {};
+BinarySearchTree.prototype.breadthFirstForEach = function (cb, array=[]){
+
+    if(this.left !== null){
+      array.push(this.left);
+    }
+  
+    if(this.right !== null){
+      array.push(this.right);
+    }
+  
+    cb(this.value);
+  
+    if(array.length > 0){
+      array.shift().breadthFirstForEach(cb, array);
+    }
+    
+};
+BinarySearchTree.prototype.getLeafs = function () {
+    let depth=[];
+    this.breadthFirstForEach(function(val){ depth.push(val)});
+    function compareNumbers(a, b) {
+        return a - b;
+      }
+    return depth.sort(compareNumbers)
+    
+};
+
+// let bst= new BinarySearchTree(0);
+// bst.insert(1);
+// bst.insert(5);
+// bst.insert(14);
+// console.log(bst.getLeafs());
+
+
+                
+
 
 /*****************************************************************/
 /***************************** QUEUE *****************************/
@@ -176,9 +212,21 @@ BinarySearchTree.prototype.getLeafs = function () {};
 // Es decir que remueva todos los elementos uno por uno de la queue.
 // Por ejemplo: [1, 2, 3, 4, 5, 6] --> [];
 // HINT: usar el metodo .isEmpty() de la clase Queue ya implementada.
-
-Queue.prototype.clearAll = function () {};
-
+const { Queue, LinkedList, BinarySearchTree } = require('./DataStructures.js');
+Queue.prototype.clearAll = function () {
+    while(this.array.length>0){
+        this.dequeue()
+    }
+};
+let queue= new Queue();
+queue.enqueue(1);
+queue.enqueue(2);
+queue.enqueue(3);
+queue.enqueue(4);
+console.log(queue)
+queue.clearAll();
+console.log(queue)
+    
 /*****************************************************************/
 /***************************** SORT ******************************/
 /*****************************************************************/
@@ -257,8 +305,50 @@ Queue.prototype.clearAll = function () {};
 //     },
 // ];
 
-function sortByDni(obj) {}
+function sortByDni(array) {
+   
+   
+ array.sort( function (a, b) {return a.dni - b.dni;})
+ return array
+   
 
+
+}
+const objetoPersonas = [
+    {
+        dni: 40607080,
+        nombre: 'Carlitos',
+        apellido: 'Fulano',
+        edad: 22,
+        email: 'carlosfulano123@gmail.com',
+        username: 'xXElCrackXx',
+    },
+    {
+        dni: 23242526,
+        nombre: 'Maria',
+        apellido: 'Gonzalez',
+        edad: 48,
+        email: 'mary.gon@hotmail.com',
+        username: 'marymary321',
+    },
+    {
+        dni: 90919293,
+        nombre: 'Bartolomeo',
+        apellido: 'Simpson',
+        edad: 10,
+        email: 'bartsimpson@gmail.com',
+        username: 'elBarto',
+    },
+    {
+        dni: 76757473,
+        nombre: 'Doge',
+        apellido: 'De Hoz',
+        edad: 5,
+        email: 'soyelperrofavorito@yahoo.com.ar',
+        username: 'dogeOfficial',
+    },
+];
+console.log(sortByDni(objetoPersonas))
 /*****************************************************************/
 /**************************** DESAFIO ****************************/
 /*****************************************************************/
