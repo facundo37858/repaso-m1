@@ -27,27 +27,27 @@ const { Queue, LinkedList, BinarySearchTree } = require('./DataStructures.js');
 // myLinkedList.getTail() ---> devuelve 2.
 // search(value) ---> Devuelve la posicion del nodo con el valor recibido por parametro, contando desde 0.
 // myLinkedList.search(16) ---> devuelve 2.
-const { Queue, LinkedList, BinarySearchTree } = require('./DataStructures.js');
+//const { Queue, LinkedList, BinarySearchTree } = require('./DataStructures.js');
 LinkedList.prototype.getHead = function () {
     if(this.head!=null){
         return this.head.value
     }
     
 };
-let linkedList= new LinkedList();
-    linkedList.add(15);
-    linkedList.add(30);
-    linkedList.add(22);
-    linkedList.add(100);
-//console.log(linkedList.getHead())
-console.log(linkedList)
-console.log(linkedList.head)
+//  let linkedList= new LinkedList();
+//      linkedList.add(15);
+//      linkedList.add(30);
+//      linkedList.add(22);
+//      linkedList.add(100);
+// console.log(linkedList.getHead())
+//console.log(linkedList)
+//console.log(linkedList.head)
 
 LinkedList.prototype.getTail = function () {
     let current=this.head;
     let prevValue
     while(current.next){
-        prevValue=current.value;
+        prevValue=current.next.value;
         current=current.next
     }
     return prevValue
@@ -78,12 +78,17 @@ LinkedList.prototype.search = function (value) {
 // Controlar que el numero pasado por parametro tengas mas de tres cifras, si el nro pasado tiene 2 o menos cifras
 // o es negativo devolver null.
 // Palindromo es una expresion que se lee igual de derecha a izquierda o viceversa.
-// Ejemplo de numeros palindromos: 1001, 252, 2001, 2222, 9889.
+// Ejemplo de numeros palindromos: 1001, 252, 2002, 2222, 9889.
 
 function isPalindrome(number) {
+    if(number < 99 || number <0)return null;
+    if(String(number)===String(number).split('').reverse().join(''))return true;
+    return false
     
+
     
-    }
+}
+//console.log(isPalindrome(2005))
 
 
 
@@ -104,10 +109,25 @@ function isPalindrome(number) {
 // 3
 // 2
 // 1
+//const { Queue, LinkedList, BinarySearchTree } = require('./DataStructures.js');
+Queue.prototype.reverseStack = function () {
+    
 
-Queue.prototype.reverseStack = function (reversed) {
-   
+    return  this.array=this.array.reverse()
+
 };
+//  let queue= new Queue();
+
+// queue.enqueue(12);
+// queue.enqueue(33);
+// queue.enqueue(22);
+// queue.enqueue(4);
+// console.log(queue.reverseStack()[0])
+// console.log(queue.reverseStack()[1])
+// console.log(queue.reverseStack()[2])
+// console.log(queue.reverseStack()[3])
+
+
 
 /*****************************************************************/
 /**************************** Closures ***************************/
@@ -122,8 +142,17 @@ Queue.prototype.reverseStack = function (reversed) {
 // Si vuelvo a llamar a growUp(), deberia devolver "Pepe tiene ahora 30 años."
 // Y asi consecutivamente...
 
-function growUp() {}
-
+function growUp() {
+    var edad
+    return function(){
+        
+        console.log(`Pepe tiene ahora ${edad=28} años`)
+        edad++
+    }();
+}
+growUp();
+growUp()
+//no pudo hacer que sume 
 /*****************************************************************/
 /****************************** BST ******************************/
 /*****************************************************************/
