@@ -348,7 +348,7 @@ const objetoPersonas = [
         username: 'dogeOfficial',
     },
 ];
-console.log(sortByDni(objetoPersonas))
+//console.log(sortByDni(objetoPersonas))
 /*****************************************************************/
 /**************************** DESAFIO ****************************/
 /*****************************************************************/
