@@ -390,7 +390,49 @@ console.log(sortByDni(objetoPersonas))
 //  15           E
 //  16           F
 
-function decToHex(number) {}
+function decToHex(number,p,arr=[]) {
+    
+    if(number%1!==0 || number < 0 ){
+        return 'number no valido';
+    }
+    if(Math.floor(number/16)>=1){
+        arr.push(number%16)
+        if(Math.floor(number/16)<=16)arr.push(Math.floor(number/16));
+        return decToHex(Math.floor(number/16),p,arr)
+
+    }
+    
+    arr.forEach(function(e,index){
+        if(e===10)arr[index]='A';
+        if(e===11)arr[index]='B';
+        if(e===12)arr[index]='C';
+        if(e===13)arr[index]='D';
+        if(e===14)arr[index]='E';
+        if(e===15)arr[index]='F'
+    });
+    arr.reverse()
+    if(p==='addHashtag'){
+        arr.unshift('#')
+        return arr.join('')
+    }
+    
+
+
+    
+    return arr.join('')
+
+
+}
+console.log( decToHex(156555,'addHashtag'))
+console.log( decToHex(460))
+console.log( decToHex(16777215))
+
+
+
+
+
+
+
 
 // NO BORRAR NI TOCAR NI AGREGAR NADA DEBAJO DE ESTA LINEA!!!!!
 module.exports = {
